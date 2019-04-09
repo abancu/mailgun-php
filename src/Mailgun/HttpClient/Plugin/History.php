@@ -13,6 +13,8 @@ use Http\Client\Common\Plugin\Journal;
 use Http\Client\Exception;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Client\ClientExceptionInterface;
+
 
 /**
  * A plugin to remember the last response.
@@ -39,7 +41,7 @@ final class History implements Journal
         $this->lastResponse = $response;
     }
 
-    public function addFailure(RequestInterface $request, Exception $exception)
+    public function addFailure(RequestInterface $request, ClientExceptionInterface $exception)
     {
     }
 }
